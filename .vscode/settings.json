@@ -1,0 +1,18 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "fullstack-server.mysql.database.azure.com",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "chat app connection",
+      "database": "chatappdb",
+      "username": "fullstack_admin",
+      "askForPassword": true
+    }
+  ]
+}
