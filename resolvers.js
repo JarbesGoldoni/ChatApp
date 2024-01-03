@@ -2,12 +2,17 @@ import pc from '@prisma/client'
 import { AuthenticationError } from 'apollo-server'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-// hello git
 
 const prisma = new pc.PrismaClient()
 
 const resolvers = {
-  Query: {},
+  Query: {
+    users: async (_, args, { userId }) => {
+      console.log(userId)
+      const users = await prisma.user.findMany()
+      return users
+    },
+  },
   Mutation: {
     signupUser: async (_, { userNew }) => {
       const user = await prisma.user.findUnique({
