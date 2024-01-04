@@ -53,7 +53,7 @@ DATABASE_URL=your_database_url
 1. Start the server:
 
 ```sh
-npm start
+npm run dev
 ```
 
 2. Navigate to http://localhost:4000 in your browser to interact with the GraphQL playground.
