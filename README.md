@@ -58,8 +58,6 @@ npm start
 
 2. Navigate to http://localhost:4000 in your browser to interact with the GraphQL playground.
 
-3. Deployment (Azure)
-   Instructions for deploying this application to Azure will be provided soon.
+### License
 
-License
 Distributed under the MIT License. See LICENSE for more information.
