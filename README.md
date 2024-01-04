@@ -30,21 +30,36 @@ This chat application is a modern, full-stack web application built using Node.j
 ### Installation
 
 1. Clone the repository:
-   ```sh
-   git clone [repository-link]
-2. Install NPM packages:   
-  ```sh
-  npm install
+
+```sh
+git clone [repository-link]
+```
+
+2. Install NPM packages:
+
+```sh
+npm install
+```
+
 3. Set up your environment variables in a .env file:
-  JWT_SECRET=your_jwt_secret
-  DATABASE_URL=your_database_url
+
+```
+JWT_SECRET=your_jwt_secret
+DATABASE_URL=your_database_url
+```
 
 ### Running the application
+
 1. Start the server:
-  npm start
+
+```sh
+npm start
+```
+
 2. Navigate to http://localhost:4000 in your browser to interact with the GraphQL playground.
+
 3. Deployment (Azure)
-  Instructions for deploying this application to Azure will be provided soon.
+   Instructions for deploying this application to Azure will be provided soon.
 
 License
 Distributed under the MIT License. See LICENSE for more information.
