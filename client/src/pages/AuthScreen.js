@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
-import { Box, Stack, Typography, Button, TextField } from '@mui/material'
+import React, { useState, useRef } from 'react'
+import { Box, Stack, Typography, Button, TextField, Card } from '@mui/material'
 
 const AuthScreen = () => {
+  const [showLogin, setShowLogin] = useState(true)
   const [formData, setFormData] = useState({})
+  const authForm = useRef(null)
 
   const handleChange = (e) => {
     setFormData({
@@ -17,6 +19,7 @@ const AuthScreen = () => {
   }
   return (
     <Box
+      ref={authForm}
       component="form"
       onSubmit={handleSubmit}
       display="flex"
@@ -24,38 +27,57 @@ const AuthScreen = () => {
       alignItems="center"
       height="80vh"
     >
-      <Stack direction="column" spacing={2} sx={{ width: '400px' }}>
-        <Typography variant="h5">Please Signup</Typography>
-        <TextField
-          name="firstName"
-          label="First Name"
-          variant="standard"
-          onChange={handleChange}
-        />
-        <TextField
-          name="lastName"
-          label="Last Name"
-          variant="standard"
-          onChange={handleChange}
-        />
-        <TextField
-          type="email"
-          name="email"
-          label="email"
-          variant="standard"
-          onChange={handleChange}
-        />
-        <TextField
-          type="password"
-          name="password"
-          label="password"
-          variant="standard"
-          onChange={handleChange}
-        />
-        <Button variant="outlined" type="submit">
-          Submit{' '}
-        </Button>
-      </Stack>
+      <Card variant="outlined" sx={{ padding: '10px' }}>
+        <Stack direction="column" spacing={2} sx={{ width: '400px' }}>
+          <Typography variant="h5">
+            Please {showLogin ? 'Login' : 'Signup'}
+          </Typography>
+          {!showLogin && (
+            <>
+              <TextField
+                name="firstName"
+                label="First Name"
+                variant="standard"
+                onChange={handleChange}
+              />
+              <TextField
+                name="lastName"
+                label="Last Name"
+                variant="standard"
+                onChange={handleChange}
+              />
+            </>
+          )}
+          <TextField
+            type="email"
+            name="email"
+            label="email"
+            variant="standard"
+            onChange={handleChange}
+          />
+          <TextField
+            type="password"
+            name="password"
+            label="password"
+            variant="standard"
+            onChange={handleChange}
+          />
+          <Typography
+            textAlign="center"
+            variant="subtitle1"
+            onClick={() => {
+              setShowLogin((preValue) => !preValue)
+              setFormData({})
+              authForm.current.reset()
+            }}
+          >
+            {showLogin ? 'Click here to Signup' : 'Click here to Login'}
+          </Typography>
+          <Button variant="outlined" type="submit">
+            {showLogin ? 'Login' : 'Signup'}
+          </Button>
+        </Stack>
+      </Card>
     </Box>
   )
 }
