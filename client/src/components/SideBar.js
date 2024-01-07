@@ -1,6 +1,7 @@
-import { Box, Typography, Divider } from '@mui/material'
+import { Box, Typography, Divider, Stack } from '@mui/material'
 import React, { useState } from 'react'
 import UserCard from './UserCard'
+import LogoutIcon from '@mui/icons-material/Logout'
 
 const SideBar = () => {
   const users = [
@@ -15,7 +16,10 @@ const SideBar = () => {
       width={'250px'}
       padding={'10px'}
     >
-      <Typography variant="h6">Chat</Typography>
+      <Stack direction={'row'} justifyContent={'space-between'}>
+        <Typography variant="h6">Chat</Typography>
+        <LogoutIcon />
+      </Stack>
       <Divider />
       {users.map((user) => {
         return <UserCard key={user.id} user={user} />
