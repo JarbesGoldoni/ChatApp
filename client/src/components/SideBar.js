@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import UserCard from './UserCard'
 import LogoutIcon from '@mui/icons-material/Logout'
 
-const SideBar = () => {
+const SideBar = ({ setLoggedIn }) => {
   const users = [
     { id: 1, firstName: 'John', lastName: 'Doe' },
     { id: 2, firstName: 'Ane', lastName: 'Kay' },
@@ -18,7 +18,12 @@ const SideBar = () => {
     >
       <Stack direction={'row'} justifyContent={'space-between'}>
         <Typography variant="h6">Chat</Typography>
-        <LogoutIcon />
+        <LogoutIcon
+          onClick={() => {
+            localStorage.removeItem('JWT')
+            setLoggedIn(false)
+          }}
+        />
       </Stack>
       <Divider />
       {users.map((user) => {
